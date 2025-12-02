@@ -13,13 +13,13 @@ Solcycle automatically adjusts your screen temperature throughout the day, reduc
 - **Daemon or Cron**: Run as a continuous service or via cron
 - **Location Lookup**: Automatic geocoding for city names and coordinates
 - **Minimal Dependencies**: Pure Python 3 with only standard library
-- **Cross-Platform Ready**: Configurable temperature command works with any display control tool
+- **Display Server Agnostic**: Works with both Wayland and X11 temperature control tools
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/solcycle.git
+git clone https://github.com/dusanx/solcycle.git
 cd solcycle
 ```
 
@@ -147,15 +147,23 @@ The temperature smoothly interpolates between points.
 
 Configure the command to set screen temperature. Use `{{temperature}}` as a placeholder:
 
+**Wayland:**
 ```json
 "temperature_command": "hyprctl hyprsunset temperature {{temperature}}"
 ```
 
-**Other examples**:
-- **Redshift**: `"redshift -P -O {{temperature}}"`
-- **Gammastep**: `"gammastep -P -O {{temperature}}"`
-- **sct**: `"sct {{temperature}}"`
+**X11:**
+```json
+"temperature_command": "redshift -P -O {{temperature}}"
+```
+
+**All supported tools:**
+- **hyprsunset** (Hyprland): `"hyprctl hyprsunset temperature {{temperature}}"`
+- **gammastep** (Wayland): `"gammastep -P -O {{temperature}}"`
 - **wlsunset** (Wayland): Custom wrapper needed
+- **redshift** (X11): `"redshift -P -O {{temperature}}"`
+- **sct** (X11): `"sct {{temperature}}"`
+- **xsct** (X11): `"xsct {{temperature}}"`
 
 ### Presets
 
@@ -304,7 +312,9 @@ systemctl --user enable --now solcycle.service
 
 - Python 3.6+
 - Internet connection (for initial location lookup and sun data download only)
-- A display temperature control tool (e.g., hyprsunset, redshift, gammastep, sct)
+- A display temperature control tool:
+  - **Wayland**: hyprsunset, gammastep, wlsunset (with wrapper)
+  - **X11**: redshift, sct, xsct
 
 ## How It Works
 

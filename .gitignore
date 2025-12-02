@@ -26,6 +26,7 @@ env/
 .DS_Store
 Thumbs.db
 .claude
+pitch*
 
 # Logs
 *.log

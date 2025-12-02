@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 # Solcycle - Automatic screen temperature adjustment based on time and sunrise/sunset
-# https://github.com/yourusername/solcycle
+# https://github.com/dusanx/solcycle
 #
 
 import argparse
@@ -647,7 +647,7 @@ def cmd_test(args):
 def main():
     parser = argparse.ArgumentParser(
         description='Solcycle - Automatic screen temperature adjustment',
-        epilog='For more information: https://github.com/yourusername/solcycle'
+        epilog='For more information: https://github.com/dusanx/solcycle'
     )
     subparsers = parser.add_subparsers(dest='command', help='Commands')
 
