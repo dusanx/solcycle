@@ -1,0 +1,21 @@
+{
+  "location": {
+    "name": "Armação de Pêra, Portugal",
+    "lat": 37.1048,
+    "lng": -8.3584
+  },
+  "temperature_command": "hyprctl hyprsunset temperature {{temperature}}",
+  "presets": {
+    "night": 2500,
+    "day": 6500,
+    "reading": 4000,
+    "gaming": 6500,
+    "movie": 3500
+  },
+  "temperature_points": {
+    "SR": "night",
+    "SR+1:00": "day",
+    "23:45": "day",
+    "00:30": "night"
+  }
+}
